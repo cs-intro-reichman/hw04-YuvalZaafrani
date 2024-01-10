@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      
+      System.out.println (camelCase("  hello  world"));
       }
 
 
@@ -67,7 +67,11 @@ public class StringOps {
     public static String camelCase (String string) {
         String newString = "";
         boolean afterSpace = false;
-        for (int i = 0; i < string.length(); i++){
+        int i = 0;
+        while (i < string.length() && string.charAt(i) == ' '){
+            i++;
+        }
+        for (;i < string.length(); i++){
              char letter = string.charAt(i);
              if (letter == ' ') {
                 afterSpace = true;
