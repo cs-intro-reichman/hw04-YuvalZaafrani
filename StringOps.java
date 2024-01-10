@@ -22,21 +22,85 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
-    }
+      
+      }
+
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String newString = "";
+        String eitan = "aeiou";
+        for (int i = 0; i < string.length(); i++){
+            char letter = string.charAt(i);
+            if (eitan.indexOf(toLower(letter)) != -1) {
+               newString += toUpper(letter);  
+            }
+            else {
+                 newString += toLower(letter);
+            }
+        }
+        return newString;
+    }
+    private static String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+    private static String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    private static char toUpper (char ch) {
+        int index = lowerCaseLetters.indexOf(ch);
+        if (index == -1){
+            return ch;
+        }
+        else {
+            return upperCaseLetters.charAt(index); 
+        }
+
+    }
+    private static char toLower (char ch) {
+        int index = upperCaseLetters.indexOf(ch);
+        if (index == -1){
+            return ch;
+        }
+        else {
+            return lowerCaseLetters.charAt(index); 
+        }
+
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String newString = "";
+        boolean afterSpace = false;
+        for (int i = 0; i < string.length(); i++){
+             char letter = string.charAt(i);
+             if (letter == ' ') {
+                afterSpace = true;
+             }
+             else{
+                if (afterSpace){
+                    newString += toUpper(letter);
+                }
+                else {
+                    newString += toLower(letter);
+                }
+                afterSpace = false;
+             }
+            
+        }
+        return newString;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter = 0;
+        for (int i = 0; i < string.length(); i++){
+            if (string.charAt(i) == chr) {
+                counter++;
+            }
+        }
+        int[] array = new int[counter];
+        int index = 0;
+        for (int i = 0; i < string.length(); i++){
+            if (string.charAt(i) == chr) {
+                array[index] = i;
+                index++;
+            }
+        }
+        return array;
     }
 }
