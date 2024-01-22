@@ -35,11 +35,12 @@ public class StringOps {
                newString += toUpper(letter);  
             }
             else {
-                 newString += toLower(letter);
+                newString += toLower(letter);
             }
         }
         return newString;
     }
+    // #feedback - we still didn't learn about class variables, so it is better to have these inside the function, for now.
     private static String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
     private static String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -71,6 +72,7 @@ public class StringOps {
         while (i < string.length() && string.charAt(i) == ' '){
             i++;
         }
+        // #feedback - we usually have a starting point in a for loop. In this case I would consider having a while loop.
         for (;i < string.length(); i++){
              char letter = string.charAt(i);
              if (letter == ' ') {
